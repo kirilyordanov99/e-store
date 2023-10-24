@@ -38,21 +38,21 @@ const Products = () => {
                 ...product,
                 title: "Mens White Shirt",
                 price: 20.18,
-                image: "./assets/shirt.jpg", // Add the image URL
+                image: "./assets/shirt.jpg", //image URL
               };
             } else if (product.id === 3) {
               return {
                 ...product,
                 title: "Mens Jeans",
                 price: 30.27,
-                image: "./assets/jeans.jpg", // Add the image URL
+                image: "./assets/jeans.jpg", //image URL
               };
             } else if (product.id === 4) {
               return {
                 ...product,
                 title: "Mens Jeans",
                 price: 30.27,
-                image: "./assets/casual shirt.jpg", // Add the image URL
+                image: "./assets/casual shirt.jpg", //image URL
               };
              } 
             }else if (product.category === "jewelery" && product.id === 8) {
@@ -60,8 +60,8 @@ const Products = () => {
                 ...product,
                 title: "Pierced Owl Silver",
                 price: 19.99,
-                description: "New description for the jewelry product",
-                image: "./assets/Pierced Owl.jpg", // Add the image URL
+                description: "Silver Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
+                image: "./assets/Pierced Owl.jpg", //image URL
               };
           }
           return product;
