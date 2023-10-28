@@ -1,6 +1,7 @@
 import React from 'react'
 import { Footer, Navbar } from "../components";
-const AboutPage = () => {
+const AboutPage = () => 
+{
   return (
     <>
       <Navbar />
@@ -12,7 +13,7 @@ const AboutPage = () => {
         this is something just for fun, and for me to lear bit of react...
         I just want to try and use theme, with different pages and navigation.
         Fake store, this isn't real store, this won't be commercial site,
-        this is something just for fun, and for me to lear bit of react...
+        this is something just for fun, and for me to learn bit of react...
         I just want to try and use theme, with different pages and navigation
         Fake store, this isn't real store, this won't be commercial site,
         this is something just for fun, and for me to lear bit of react...

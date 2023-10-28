@@ -1,9 +1,12 @@
-import React from "react";
 import { Footer, Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
+
+  // State variables to manage selected country and state
+ 
 
   const EmptyCart = () => {
     return (
@@ -31,6 +34,7 @@ const Checkout = () => {
     state.map((item) => {
       return (totalItems += item.qty);
     });
+
     return (
       <>
         <div className="container py-5">
@@ -67,7 +71,7 @@ const Checkout = () => {
                   <h4 className="mb-0">Billing address</h4>
                 </div>
                 <div className="card-body">
-                  <form className="needs-validation" novalidate>
+                  <form className="needs-validation" noValidate>
                     <div className="row g-3">
                       <div className="col-sm-6 my-1">
                         <label for="firstName" className="form-label">
@@ -111,12 +115,11 @@ const Checkout = () => {
                           type="email"
                           className="form-control"
                           id="email"
-                          placeholder="you@example.com"
+                          placeholder="email@example.com"
                           required
                         />
                         <div className="invalid-feedback">
-                          Please enter a valid email address for shipping
-                          updates.
+                          Please enter a valid email address for shipping updates.
                         </div>
                       </div>
 
@@ -150,36 +153,32 @@ const Checkout = () => {
                       </div>
 
                       <div className="col-md-5 my-1">
-                        <label for="country" className="form-label">
-                          Country
-                        </label>
-                        <br />
-                        <select className="form-select" id="country" required>
-                          <option value="">Choose...</option>
-                          <option>India</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          Please select a valid country.
-                        </div>
+                     <label for="country" className="form-label">
+                        Country
+                       </label>
+                       <br />
+                    <input type="text" className="form-select" id="country" placeholder="Enter country" required>
+                       </input>
+                      <div className="invalid-feedback">
+                       Please enter a valid country.
                       </div>
+                    </div>
 
-                      <div className="col-md-4 my-1">
-                        <label for="state" className="form-label">
-                          State
-                        </label>
-                        <br />
-                        <select className="form-select" id="state" required>
-                          <option value="">Choose...</option>
-                          <option>Punjab</option>
-                        </select>
-                        <div className="invalid-feedback">
-                          Please provide a valid state.
-                        </div>
+                      <div className="col-md-5 my-1">
+                     <label for="country" className="form-label">
+                        State
+                       </label>
+                       <br />
+                    <input type="text" className="form-select" id="state" placeholder="Enter state" required>
+                       </input>
+                      <div className="invalid-feedback">
+                       Please enter a valid state.
                       </div>
+                    </div>
 
                       <div className="col-md-3 my-1">
                         <label for="zip" className="form-label">
-                          Zip
+                          Zip Code
                         </label>
                         <input
                           type="text"
@@ -188,9 +187,7 @@ const Checkout = () => {
                           placeholder=""
                           required
                         />
-                        <div className="invalid-feedback">
-                          Zip code required.
-                        </div>
+                        <div className="invalid-feedback">Zip code required.</div>
                       </div>
                     </div>
 
@@ -201,7 +198,7 @@ const Checkout = () => {
                     <div className="row gy-3">
                       <div className="col-md-6">
                         <label for="cc-name" className="form-label">
-                          Name on card
+                          Card holder name
                         </label>
                         <input
                           type="text"
@@ -211,7 +208,7 @@ const Checkout = () => {
                           required
                         />
                         <small className="text-muted">
-                          Full name as displayed on card
+                          Type holder name as dislplayed on the card
                         </small>
                         <div className="invalid-feedback">
                           Name on card is required
@@ -245,9 +242,7 @@ const Checkout = () => {
                           placeholder=""
                           required
                         />
-                        <div className="invalid-feedback">
-                          Expiration date required
-                        </div>
+                        <div className="invalid-feedback">Expiration date required</div>
                       </div>
 
                       <div className="col-md-3">
@@ -261,20 +256,15 @@ const Checkout = () => {
                           placeholder=""
                           required
                         />
-                        <div className="invalid-feedback">
-                          Security code required
-                        </div>
+                        <div className="invalid-feedback">Security code required</div>
                       </div>
                     </div>
 
                     <hr className="my-4" />
 
-                    <button
-                      className="w-100 btn btn-primary "
-                      type="submit" disabled
-                    >
-                      Continue to checkout
-                    </button>
+                    <button className="w-100 btn btn-primary" type="submit" disabled>
+                  Continue to checkout
+                    </button> 
                   </form>
                 </div>
               </div>
@@ -284,6 +274,7 @@ const Checkout = () => {
       </>
     );
   };
+
   return (
     <>
       <Navbar />

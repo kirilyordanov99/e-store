@@ -8,7 +8,8 @@ const Cart = () => {
   const state = useSelector((state) => state.handleCart);
   const dispatch = useDispatch();
 
-  const EmptyCart = () => {
+  const EmptyCart = () => 
+  {
     return (
       <div className="container">
         <div className="row">
@@ -23,10 +24,12 @@ const Cart = () => {
     );
   };
 
-  const addItem = (product) => {
+  const addItem = (product) => 
+  {
     dispatch(addCart(product));
   };
-  const removeItem = (product) => {
+  const removeItem = (product) => 
+  {
     dispatch(delCart(product));
   };
 
