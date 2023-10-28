@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import React, { useState } from "react";
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
 import { Footer, Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,7 +10,12 @@ const Checkout = () => {
   const state = useSelector((state) => state.handleCart);
 
   // State variables to manage selected country and state
+<<<<<<< HEAD
  
+=======
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
 
   const EmptyCart = () => {
     return (
@@ -35,6 +44,22 @@ const Checkout = () => {
       return (totalItems += item.qty);
     });
 
+<<<<<<< HEAD
+=======
+    // Function to handle country selection
+    const handleCountryChange = (event) => {
+      const selectedCountry = event.target.value;
+      setSelectedCountry(selectedCountry);
+      setSelectedState(""); // Clear selected state when changing the country
+    };
+
+    // Function to handle state selection
+    const handleStateChange = (event) => {
+      const selectedState = event.target.value;
+      setSelectedState(selectedState);
+    };
+
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
     return (
       <>
         <div className="container py-5">
@@ -153,6 +178,7 @@ const Checkout = () => {
                       </div>
 
                       <div className="col-md-5 my-1">
+<<<<<<< HEAD
                      <label for="country" className="form-label">
                         Country
                        </label>
@@ -161,9 +187,28 @@ const Checkout = () => {
                        </input>
                       <div className="invalid-feedback">
                        Please enter a valid country.
+=======
+                        <label for="country" className="form-label">
+                          Country
+                        </label>
+                        <br />
+                        <select className="form-select" id="country" required>
+                          <option value="">Choose...</option>
+                          <option value="Country">Country</option>
+                          <option value="Country">Country</option>
+                          <option value="Country">Country</option>
+                          <option value="Country">Country</option>
+                          <option value="Country">Country</option>
+                          <option value="Country">Country</option>
+                        </select>
+                        <div className="invalid-feedback">
+                          Please select a valid country.
+                        </div>
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
                       </div>
                     </div>
 
+<<<<<<< HEAD
                       <div className="col-md-5 my-1">
                      <label for="country" className="form-label">
                         State
@@ -173,6 +218,24 @@ const Checkout = () => {
                        </input>
                       <div className="invalid-feedback">
                        Please enter a valid state.
+=======
+                      <div className="col-md-4 my-1">
+                        <label for="state" className="form-label">
+                          State
+                        </label>
+                        <br />
+                        <select className="form-select" id="state" required>
+                          <option value="">Choose...</option>
+                          <option>State</option>
+                          <option>State</option>
+                          <option>State</option>
+                          <option>State</option>
+                          <option>State</option>
+                        </select>
+                        <div className="invalid-feedback">
+                          Please provide a valid state.
+                        </div>
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
                       </div>
                     </div>
 
@@ -263,8 +326,13 @@ const Checkout = () => {
                     <hr className="my-4" />
 
                     <button className="w-100 btn btn-primary" type="submit" disabled>
+<<<<<<< HEAD
                   Continue to checkout
                     </button> 
+=======
+                      Continue to checkout
+                    </button>
+>>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
                   </form>
                 </div>
               </div>
