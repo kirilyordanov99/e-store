@@ -19,7 +19,6 @@ const Products = () =>
 
   // Use useRef for componentMounted
   const componentMounted = useRef(true);
-<<<<<<< HEAD
   useEffect(() => 
   {
     const getProducts = async () =>
@@ -48,44 +47,19 @@ const Products = () =>
           {
             if (product.id === 2) 
             {
-=======
-  useEffect(() => {
-    const getProducts = async () => {
-      setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products");
-      if (componentMounted.current) {
-        const responseData = await response.json();
-  
-        // Remove the product with id: 1 from the men's section
-        const filteredData = responseData.filter(
-          (product) => !(product.category === "men's clothing" && product.id === 1)
-        );
-  
-        // Modify specific men's products (e.g., change the title, price, and add images for products with id: 2 and 3)
-        const modifiedData = filteredData.map((product) => {
-          if (product.category === "men's clothing") {
-            if (product.id === 2) {
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
               return {
                 ...product,
                 title: "Mens White Shirt",
                 price: 20.18,
-<<<<<<< HEAD
                 image: "./assets/shirt.jpg", // Add the image URL
               };
             } 
             else if (product.id === 3) 
             {
-=======
-                image: "./assets/shirt.jpg", //image URL
-              };
-            } else if (product.id === 3) {
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
               return {
                 ...product,
                 title: "Mens Jeans",
                 price: 30.27,
-<<<<<<< HEAD
                 image: "./assets/jeans.jpg", // Add the image URL
               };
             } 
@@ -101,29 +75,12 @@ const Products = () =>
             }
             else if (product.category === "jewelery" && product.id === 8) 
             {
-=======
-                image: "./assets/jeans.jpg", //image URL
-              };
-            } else if (product.id === 4) {
-              return {
-                ...product,
-                title: "Mens Jeans",
-                price: 30.27,
-                image: "./assets/casual shirt.jpg", //image URL
-              };
-             } 
-            }else if (product.category === "jewelery" && product.id === 8) {
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
               return {
                 ...product,
                 title: "Pierced Owl Silver",
                 price: 19.99,
                 description: "Silver Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel",
-<<<<<<< HEAD
                 image: "./assets/Pierced Owl.jpg", // Add the image URL
-=======
-                image: "./assets/Pierced Owl.jpg", //image URL
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
               };
           }
           return product;
@@ -163,12 +120,8 @@ const Products = () =>
     setFilter(updatedList);
   };
 
-<<<<<<< HEAD
   const ShowProducts = () => 
   {
-=======
-  const ShowProducts = () => {
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
     return (
       <>
         <div className="buttons text-center py-5">
@@ -189,12 +142,8 @@ const Products = () =>
           </button>
         </div>
 
-<<<<<<< HEAD
         {filter.map((product) => 
         (
-=======
-        {filter.map((product) => (
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
           <div id={product.id} key={product.id} className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4">
             <div className="card text-center h-100" key={product.id}>
               <img className="card-img-top p-3" src={product.image} alt="Card" height={300} />
@@ -215,7 +164,6 @@ const Products = () =>
               </div>
             </div>
           </div>
-<<<<<<< HEAD
         ))
         }
       </>
@@ -231,13 +179,6 @@ const Products = () =>
     s1.setAttribute("crossorigin", "*");
     s0.parentNode.insertBefore(s1, s0);
   }, []);
-=======
-        ))}
-      </>
-    );
-  };
-
->>>>>>> 5f850ceb0e534b3ae6c4e1fd15dfc5f8868537df
   return (
     <div className="container my-3 py-3">
       <div className="row">

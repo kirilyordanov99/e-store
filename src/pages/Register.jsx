@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer, Navbar } from '../components';
-
-// Import Firebase auth
-import { auth } from '../firebase'; // Assuming you've exported the Firebase auth object
+import { auth } from './firebase';
 
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [registrationError, setRegistrationError] = useState('');
 
   const handleRegister = async () => {
+    if (password !== confirmPassword) {
+      setPasswordError('Passwords do not match.');
+      return;
+    }
+    if (password.length < 6) {
+      setPasswordError('Password should be at least 6 characters.');
+      return;
+    }
+
     try {
       const userCredential = await auth.createUserWithEmailAndPassword(email, password);
       // User registration successful
       console.log('User registered:', userCredential.user);
+      window.location.href = '/'; // Redirect to the home page
     } catch (error) {
-      // Handle registration error
-      console.error('Error registering user:', error);
+      if (error.code === 'auth/email-already-in-use') {
+        setRegistrationError('The provided email is already in use.');
+      } else {
+        setRegistrationError('Error registering user. Please try again later.');
+      }
     }
   };
 
@@ -58,6 +72,18 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <div className="form my-3">
+                <label htmlFor="ConfirmPassword">Confirm Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="ConfirmPassword"
+                  placeholder="Confirm Password"
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+              </div>
+              <p className="text-danger">{passwordError}</p>
+              <p className="text-danger">{registrationError}</p>
               <div className="my-3">
                 <p>
                   Already registered?{' '}

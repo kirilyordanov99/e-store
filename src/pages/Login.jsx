@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer, Navbar } from '../components';
-
-// Import Firebase auth
-import { auth } from '../firebase'; // Assuming you've exported the Firebase auth object
+import { auth } from './firebase';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,6 +12,8 @@ const Login = () => {
       await auth.signInWithEmailAndPassword(email, password);
       // User login successful
       console.log('User logged in:', auth.currentUser);
+      // Redirect to the home page
+      window.location.href = '/'; // Redirect to the home page
     } catch (error) {
       // Handle login error
       console.error('Error logging in:', error);
