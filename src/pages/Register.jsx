@@ -7,7 +7,9 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [username, setUsername] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [usernameError, setUsernameError] = useState('');
   const [registrationError, setRegistrationError] = useState('');
 
   const handleRegister = async () => {
@@ -19,8 +21,22 @@ const Register = () => {
       setPasswordError('Password should be at least 6 characters.');
       return;
     }
+    
+    // Add username validation logic
+    if (username.length < 3) {
+      setUsernameError('Username should be at least 3 characters.');
+      return;
+    }
 
     try {
+      // Check if the username is available (API call to your backend)
+      const isUsernameAvailable = await checkUsernameAvailability(username);
+
+      if (!isUsernameAvailable) {
+        setUsernameError('Username is already in use.');
+        return;
+      }
+
       const userCredential = await auth.createUserWithEmailAndPassword(email, password);
       // User registration successful
       console.log('User registered:', userCredential.user);
@@ -34,6 +50,15 @@ const Register = () => {
     }
   };
 
+  // Function to check if the username is available (replace with your actual API call)
+  const checkUsernameAvailability = async (username) => {
+    // Simulate a delay, replace with your API call to check the username
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Return true if username is available, false if it's already in use (replace with actual logic)
+    return username !== 'existingUsername';
+  };
+
   return (
     <>
       <Navbar />
@@ -44,13 +69,15 @@ const Register = () => {
           <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
             <form>
               <div className="form my-3">
-                <label htmlFor="Name">Name</label>
+                <label htmlFor="Username">Username</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="Name"
-                  placeholder="Enter Your Name"
+                  id="Username"
+                  placeholder="Enter Your Username"
+                  onChange={(e) => setUsername(e.target.value)}
                 />
+                <p className="text-danger">{usernameError}</p>
               </div>
               <div className="form my-3">
                 <label htmlFor="Email">Email</label>
