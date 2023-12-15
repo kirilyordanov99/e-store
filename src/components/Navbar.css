@@ -1,0 +1,52 @@
+/* Navbar.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .navbar {
+    margin-top: 0; /* You can adjust this value as needed */
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #333;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-bottom: 0;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  
+  .buttons {
+    margin-left: auto;
+  }
+  
+  /* Additional styles to make the navigation items appear in a single line */
+  .navbar-nav {
+    flex-wrap: nowrap;
+  }
+  
+  .navbar-nav .nav-item {
+    white-space: nowrap;
+  }
+  
