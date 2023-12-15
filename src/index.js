@@ -13,6 +13,7 @@ import {
   AboutPage,
   ContactPage,
   Cart,
+  Terms,
   Checkout,
   PageNotFound,
 } from './pages';
@@ -28,6 +29,7 @@ root.render(
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/terms" element={<Terms/>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/footer.css" element={<Checkout />} />
         <Route path="/Navbar.css" element={<Checkout />} />

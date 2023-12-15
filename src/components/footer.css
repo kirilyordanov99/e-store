@@ -21,7 +21,20 @@ body {
     border: none;
     outline: none;
   }
- 
+  .social {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed */
+    font-size: 2rem; /* Adjust as needed */
+  }
+  
+  .social i {
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .social i:hover {
+    transform: scale(1.2); /* Add a scaling effect on hover */
+  }
   .row {
     padding: 1em;
   }
